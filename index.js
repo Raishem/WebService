@@ -1,12 +1,12 @@
 const express = require('express');
+const cors = require('cors')
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-    const resume =
+
+    const profile =
     {
-        Personal_Information:
-        [
+        personal_info:
             {
                 name: "Shem John Juevesano",
                 Address: "Sitio Sereas, Lorega, San Miguel, Cebu City",
@@ -15,17 +15,16 @@ app.get('/', (req, res) => {
                 Birthdate: "April 20, 2001",
                 Age: "23",
                 Gender: "Male"
-            }
-        ],
-
-        About_Me: 
-        [
+            },
+        
+        about_me: 
+        
             {
                 Description: "Hello! I'm Shem, and for now, I am still a 2nd year College of Computer Studies student. I am aiming to enhance my coding skills especially in HTML, CSS, Javascript, and more! That's because I'm dreaming of becoming a full-stack developer."
-            }
-        ],
+            },
+        
 
-        Skills: 
+        skills: 
         [
             {
                 SkillName: "HTML/CSS",
@@ -36,29 +35,58 @@ app.get('/', (req, res) => {
             }
         ],
 
-        Education:
+        education:
         [
             {
-                Level: "College",
-                Degree: "Bachelor of Science in Information Technology",
-                School: "University of Southern Philippines Foundation",
-                Year: "2023-2024"
+                level: "Elementary",
+                school: "Busogon Integrated School",
+                year: "2008-2014",
+                schooladdress: "Busogon, San Remigio, Cebu"
+            },
+            {
+                level: "Junior High School",
+                school: "Busogon Integrated School",
+                year: "2014-2018",
+                schooladdress: "Busogon, San Remigio, Cebu"
+            },
+            {
+                level: "Senior High School",
+                school: "Busogon Integrated School",
+                year: "2018-2020",
+                schooladdress: "Busogon, San Remigio, Cebu"
+            },
+            {
+                level: "College",
+                course: "Bachelor of Science in Information Technology",
+                school: "University of Southern Philippines Foundation",
+                year: "2022-2024",
+                schooladdress: "Salinas Drive, Lahug, Cebu City"
             }
         ],
 
-        References: 
-        [
+        work_experience: 
             {
-                Description: "No references yet"
-            }
-        ],
+                jobtitle: "Non-Voice Call Center Agent",
+                company_name: "Fiercecom",
+            },
+        
 
-    };
+        references: 
+        
+            {
+                description: "No references yet"
+            }
+        }
+
+
     
-
-
-    res.json(resume);
+app.get('/', (req,res) => { 
+    res.json(profile);
 });
+    app.get('/', (req, res) => {
+        res.json(profile);
+    });
+    
 
 app.listen(port, () => {
     console.log(`Server running on port link ${3000}`);
